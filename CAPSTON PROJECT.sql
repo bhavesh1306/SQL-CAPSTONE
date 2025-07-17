@@ -51,7 +51,7 @@ INSERT INTO Orders VALUES
 (104, 3, '2024-04-20', 'Laptop', 1, 50000),
 (105, 4, '2024-04-22', 'Headphones', 1, 2000),
 (106, 2, '2024-04-25', 'Laptop', 1, 52000),
-(107, 5, '2024-04-28', 'Mouse', 1, 700),
+(107, 5, '2024-04-28', 'Mouse',Â 1,Â 700),
 (108,3,'2024-05-02','keyboard',1,1600);
 
 select * from orders;
@@ -69,7 +69,7 @@ where city= 'mumbai';
 
 ---2
 select * from orders 
-where product= 'laptop';
+where product=Â 'laptop';
 
 ---3
 select COUNT(*) as TotalOrders from orders;
@@ -85,13 +85,13 @@ where price between 50000 and 80000;
 
 ---Part B: Joins
 ---4 Get the full name of customer and their product order.
----5 Get the full name of customers and their product ordered.
+---5 Get the full name of customers and their productÂ ordered.
 
 select c.Firstname +' '+ c.Lastname as fullname, o.product 
 from customers c 
-join orders o on c.customer_id = o.customerid;
+join orders o on c.customer_idÂ =Â o.customerid;
 
----5  Get the full name of customers and their product ordered.
+---5  Get the full name of customers and their productÂ ordered.
 
 Select * from customers
 where customer_id not in (Select Distinct CustomerID From  orders);
@@ -118,7 +118,7 @@ WHERE product = 'mouse';
 
 select c.firstname, SUM(o.quantity * o.price)sales
 from customers c join orders o on c.customer_id = o.customerid
-group by c.firstname;
+groupÂ byÂ c.firstname;
 
 ---9 
 SELECT c.city, COUNT(o.orderid) AS orders
@@ -149,7 +149,7 @@ case
 when Price > 50000 then 'High Value'
 else 'Low value'
 end as ValueLabel
-from orders;
+fromÂ orders;
 
 
 ----PART F:Window function
@@ -177,7 +177,7 @@ orderid,
 customerid,
 orderdate,
 price,
-ROW_NUMBER() over (partition by customerid order by price) as rownum from orders;
+ROW_NUMBER() over (partition by customerid order by price) as rownumÂ fromÂ orders;
 
 
 ---15 Use DENSE RANK to
